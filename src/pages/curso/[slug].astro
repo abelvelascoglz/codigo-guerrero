@@ -1,0 +1,234 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const modulos = await getCollection('modulos');
+  return modulos.map((modulo) => ({
+    params: { slug: modulo.slug },
+    props: { modulo },
+  }));
+}
+
+const { modulo } = Astro.props;
+const { Content } = await modulo.render();
+
+// Función para obtener el siguiente módulo
+function getNextModule(currentModule: number) {
+  const moduleOrder = ['semana-0', 'modulo-1', 'modulo-2', 'modulo-3', 'modulo-4', 'modulo-5', 'modulo-6'];
+  const currentIndex = moduleOrder.indexOf(modulo.slug);
+  if (currentIndex < moduleOrder.length - 1) {
+    return moduleOrder[currentIndex + 1];
+  }
+  return null;
+}
+
+// Función para obtener el módulo anterior
+function getPrevModule(currentModule: number) {
+  const moduleOrder = ['semana-0', 'modulo-1', 'modulo-2', 'modulo-3', 'modulo-4', 'modulo-5', 'modulo-6'];
+  const currentIndex = moduleOrder.indexOf(modulo.slug);
+  if (currentIndex > 0) {
+    return moduleOrder[currentIndex - 1];
+  }
+  return null;
+}
+
+const nextModule = getNextModule(modulo.data.moduleNumber);
+const prevModule = getPrevModule(modulo.data.moduleNumber);
+const resolveUrl = (url) => {
+  if (!url || url.startsWith("http") || url.startsWith("#")) return url;
+  if (url.startsWith("/")) return `${baseUrl}${url.slice(1)}`;
+  return url;
+};
+---
+
+<Layout 
+  title={`${modulo.data.title} - CÓDIGO GUERRERO`}
+  description={modulo.data.description}
+  keywords={modulo.data.keywords?.join(', ')}
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-16 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary"></div>
+      <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      
+      <div class="relative z-10 section-container">
+        <div class="max-w-4xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="mb-8">
+            <ol class="flex items-center space-x-2 text-sm text-gray-400">
+              <li><a href={import.meta.env.BASE_URL} class="hover:text-accent-gold transition-colors">Inicio</a></li>
+              <li class="text-gray-600">/</li>
+              <li><a href={import.meta.env.BASE_URL + "curso"} class="hover:text-accent-gold transition-colors">Curso</a></li>
+              <li class="text-gray-600">/</li>
+              <li class="text-gray-300">{modulo.data.title}</li>
+            </ol>
+          </nav>
+          
+          <!-- Module Header -->
+          <div class="text-center">
+            <div class="inline-flex items-center bg-accent-gold/10 border border-accent-gold/20 rounded-full px-4 py-2 mb-4">
+              <span class="text-accent-gold font-bold text-sm">
+                {modulo.slug.includes('semana') ? 'SEMANA' : 'MÓDULO'} {modulo.data.moduleNumber}
+              </span>
+            </div>
+            
+            <h1 class="font-bold text-4xl md:text-5xl font-bold mb-4 text-white">
+              {modulo.data.title}
+            </h1>
+            
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              {modulo.data.description}
+            </p>
+            
+            {modulo.data.duration && (
+              <div class="flex items-center justify-center space-x-6 text-gray-400">
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span>{modulo.data.duration}</span>
+                </div>
+                {modulo.data.difficulty && (
+                  <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <span>{modulo.data.difficulty}</span>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-12">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-dark-secondary rounded-lg border border-accent-gold/20 overflow-hidden">
+            <div class="p-8 md:p-12">
+              <!-- Content -->
+              <div class="prose prose-invert prose-lg max-w-none">
+                <Content />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="py-12 bg-dark-secondary">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto">
+          <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div class="flex-1">
+              {prevModule && (
+                <Button variant="outline" href={`/curso/${prevModule}`} class="w-full sm:w-auto">
+                  ← Módulo Anterior
+                </Button>
+              )}
+            </div>
+            
+            <div class="flex-1 text-center">
+              <Button variant="secondary" href={import.meta.env.BASE_URL + "curso"} class="w-full sm:w-auto">
+                Ver Todos los Módulos
+              </Button>
+            </div>
+            
+            <div class="flex-1 text-right">
+              {nextModule && (
+                <Button variant="primary" href={`/curso/${nextModule}`} class="w-full sm:w-auto">
+                  Siguiente Módulo →
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="py-12">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h3 class="font-bold text-2xl font-bold mb-6 text-white">
+            ¿Completaste este módulo?
+          </h3>
+          <p class="text-gray-300 mb-8">
+            Marca como completado y comparte tu progreso en la comunidad Discord.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="primary" size="lg">
+              Marcar como Completado
+            </Button>
+            <Button variant="outline" size="lg" href="#comunidad">
+              Compartir en Discord
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .prose {
+    color: #e5e7eb;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #ffffff;
+    font-family: 'Oswald', system-ui, sans-serif;
+  }
+  
+  .prose h2 {
+    @apply text-accent-gold border-b border-accent-gold/20 pb-2;
+  }
+  
+  .prose h3 {
+    @apply text-accent-gold;
+  }
+  
+  .prose strong {
+    @apply text-accent-gold;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-accent-gold bg-dark-primary/50 p-4 rounded-r-lg;
+  }
+  
+  .prose code {
+    @apply bg-dark-primary text-accent-gold px-2 py-1 rounded;
+  }
+  
+  .prose pre {
+    @apply bg-dark-primary border border-accent-gold/20 rounded-lg;
+  }
+  
+  .prose ul li::marker {
+    color: #D97706;
+  }
+  
+  .prose ol li::marker {
+    color: #D97706;
+  }
+  
+  .prose a {
+    @apply text-accent-gold hover:text-accent-gold/80 transition-colors;
+  }
+</style>
+

@@ -1,0 +1,51 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href, 
+  class: className = '' 
+} = Astro.props;
+
+// Función para resolver URLs usando Astro.url.pathname
+const resolveUrl = (url?: string) => {
+  if (!url) return undefined;
+  if (url.startsWith('http') || url.startsWith('#')) return url;
+  if (url.startsWith('/')) {
+    // Usar directamente import.meta.env.BASE_URL que ya incluye las barras correctas
+    const base = import.meta.env.BASE_URL;
+    return base + url.substring(1);
+  }
+  return url;
+};
+
+const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-dark-primary';
+
+const variantClasses = {
+  primary: 'bg-accent-gold hover:bg-accent-gold/90 text-dark-primary',
+  secondary: 'bg-accent-red hover:bg-accent-red/90 text-white',
+  outline: 'bg-transparent border-2 border-accent-gold text-accent-gold hover:bg-accent-gold hover:text-dark-primary'
+};
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+const Tag = href ? 'a' : 'button';
+const resolvedHref = resolveUrl(href);
+---
+
+<Tag class={classes} href={resolvedHref}>
+  <slot />
+</Tag>
+

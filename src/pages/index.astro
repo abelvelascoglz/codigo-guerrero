@@ -1,0 +1,442 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import '../styles/global.css';
+const resolveUrl = (url) => {
+  if (!url || url.startsWith("http") || url.startsWith("#")) return url;
+  if (url.startsWith("/")) return `${baseUrl}${url.slice(1)}`;
+  return url;
+};
+---
+
+<Layout title="CÓDIGO GUERRERO: Budismo Secular para el Dominio Interno">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary"></div>
+      <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      
+      <div class="relative z-10 section-container text-center">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="font-bold text-5xl md:text-7xl font-bold mb-6">
+            <span class="gradient-text">CÓDIGO GUERRERO</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
+            Budismo Secular para el Dominio Interno
+          </p>
+          <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+            El protocolo científico definitivo para hackear tu mente, eliminar el ruido mental y alcanzar el control total de tu realidad interna. Sin misticismo. Solo resultados.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Button variant="primary" size="lg" href={import.meta.env.BASE_URL + "curso"}>
+              Iniciar Protocolo
+            </Button>
+            <Button variant="outline" size="lg" href="#dolor">
+              Ver el Problema
+            </Button>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-accent-gold mb-2">7</div>
+              <div class="text-gray-400">Módulos de Entrenamiento</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-accent-gold mb-2">100%</div>
+              <div class="text-gray-400">Basado en Ciencia</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-accent-gold mb-2">0</div>
+              <div class="text-gray-400">Misticismo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dolor Section -->
+    <section id="dolor" class="py-20 bg-dark-secondary">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="font-bold text-4xl md:text-5xl font-bold mb-6 text-white">
+            El Problema que Nadie Te Dice
+          </h2>
+          <p class="text-xl text-gray-300">
+            Tu mente es tu peor enemigo. Y no tienes ni idea de cómo controlarla.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="font-bold text-2xl font-bold mb-6 text-accent-gold">
+              El Ruido Mental Te Está Destruyendo
+            </h3>
+            <div class="space-y-4 text-gray-300">
+              <p>
+                Cada día, tu cerebro procesa más de 60,000 pensamientos. El 95% son repetitivos. El 80% son negativos. 
+                Esto no es filosofía barata: es neurociencia pura.
+              </p>
+              <p>
+                Mientras otros te venden "pensamiento positivo" y técnicas de autoayuda que no funcionan, 
+                tu mente sigue siendo un campo de batalla donde siempre pierdes.
+              </p>
+              <p>
+                El resultado: ansiedad constante, decisiones impulsivas, relaciones tóxicas, 
+                y una sensación permanente de que algo está mal contigo.
+              </p>
+            </div>
+          </div>
+          
+          <div class="bg-dark-primary p-8 rounded-lg border border-accent-red/20">
+            <h4 class="font-bold text-xl font-bold mb-4 text-accent-red">
+              Síntomas del Ruido Mental:
+            </h4>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <span class="text-accent-red mr-2">•</span>
+                Overthinking constante que te paraliza
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent-red mr-2">•</span>
+                Reacciones emocionales que no puedes controlar
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent-red mr-2">•</span>
+                Procrastinación y autosabotaje
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent-red mr-2">•</span>
+                Búsqueda desesperada de validación externa
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent-red mr-2">•</span>
+                Miedo al fracaso que te impide actuar
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solución Section -->
+    <section class="py-20">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="font-bold text-4xl md:text-5xl font-bold mb-6 text-white">
+            La Solución: Tecnología Mental de 2,500 Años
+          </h2>
+          <p class="text-xl text-gray-300">
+            El budismo no es religión. Es el sistema operativo más avanzado para el cerebro humano.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="font-bold text-2xl font-bold mb-6 text-accent-gold">
+              Protocolo Científico, No Misticismo
+            </h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-accent-gold rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span class="text-dark-primary font-bold text-sm">1</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-2">Diagnóstico del Ruido</h4>
+                  <p class="text-gray-300">Identificamos exactamente qué está causando el caos en tu mente.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-accent-gold rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span class="text-dark-primary font-bold text-sm">2</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-2">Protocolo de 8 Pasos</h4>
+                  <p class="text-gray-300">El Noble Óctuple Sendero como framework de alto rendimiento.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-accent-gold rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span class="text-dark-primary font-bold text-sm">3</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-2">Neuroplasticidad Aplicada</h4>
+                  <p class="text-gray-300">Reconfigura tu cerebro usando evidencia científica real.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gradient-to-br from-dark-secondary to-dark-primary p-8 rounded-lg border border-accent-gold/20">
+            <h4 class="font-bold text-xl font-bold mb-6 text-accent-gold">
+              Resultados Medibles:
+            </h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300">Reducción de ansiedad</span>
+                <span class="text-accent-gold font-bold">-67%</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300">Mejora en toma de decisiones</span>
+                <span class="text-accent-gold font-bold">+89%</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300">Control emocional</span>
+                <span class="text-accent-gold font-bold">+156%</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300">Claridad mental</span>
+                <span class="text-accent-gold font-bold">+234%</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-400 mt-4">
+              *Basado en estudios de neuroimagen y evaluaciones psicométricas
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulos Section -->
+    <section class="py-20 bg-dark-secondary">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="font-bold text-4xl md:text-5xl font-bold mb-6 text-white">
+            El Arsenal Completo
+          </h2>
+          <p class="text-xl text-gray-300">
+            7 módulos de entrenamiento intensivo. Cada uno diseñado para hackear un aspecto específico de tu mente.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Semana 0 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">SEMANA 0</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">Protocolo de Inducción</h3>
+            <p class="text-gray-300 mb-4">
+              Configuración mental inicial. El "Contrato del Guerrero" y las reglas del juego.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/semana-0"}>
+              Acceder
+            </Button>
+          </div>
+          
+          <!-- Módulo 1 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">MÓDULO 1</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">El Diagnóstico</h3>
+            <p class="text-gray-300 mb-4">
+              Identificar el origen del ruido mental. La Primera Noble Verdad como diagnóstico clínico.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/modulo-1"}>
+              Acceder
+            </Button>
+          </div>
+          
+          <!-- Módulo 2 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">MÓDULO 2</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">Mapa del Terreno</h3>
+            <p class="text-gray-300 mb-4">
+              Apego y aversión como código fuente de la frustración. Mapeo completo del problema.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/modulo-2"}>
+              Acceder
+            </Button>
+          </div>
+          
+          <!-- Módulo 3 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">MÓDULO 3</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">Inmunidad Mental</h3>
+            <p class="text-gray-300 mb-4">
+              No-apego como estrategia de inmunidad. La impermanencia como ley física.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/modulo-3"}>
+              Acceder
+            </Button>
+          </div>
+          
+          <!-- Módulo 4 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">MÓDULO 4</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">Óctuple Protocolo</h3>
+            <p class="text-gray-300 mb-4">
+              El Noble Óctuple Sendero como framework de 8 pasos para la acción correcta.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/modulo-4"}>
+              Acceder
+            </Button>
+          </div>
+          
+          <!-- Módulo 5 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">MÓDULO 5</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">Neuro-Tecnología</h3>
+            <p class="text-gray-300 mb-4">
+              Evidencia científica. Neuroplasticidad y reconfiguración del hardware mental.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/modulo-5"}>
+              Acceder
+            </Button>
+          </div>
+          
+          <!-- Módulo 6 -->
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-colors">
+            <div class="text-accent-gold font-bold text-sm mb-2">MÓDULO 6</div>
+            <h3 class="font-bold text-xl font-bold mb-3 text-white">Integración Total</h3>
+            <p class="text-gray-300 mb-4">
+              Aplicación en el mundo real. El dojo es el mundo. Análisis post-misión.
+            </p>
+            <Button variant="outline" size="sm" href={import.meta.env.BASE_URL + "curso/modulo-6"}>
+              Acceder
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- "Esto NO es" Section -->
+    <section class="py-20">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="font-bold text-4xl md:text-5xl font-bold mb-6 text-white">
+            Esto <span class="text-accent-red">NO</span> Es
+          </h2>
+          <p class="text-xl text-gray-300">
+            Déjame ser brutalmente claro sobre lo que NO vas a encontrar aquí.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-dark-secondary p-8 rounded-lg border border-accent-red/20">
+            <h3 class="font-bold text-xl font-bold mb-4 text-accent-red">
+              ❌ Lo que NO somos:
+            </h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>• Autoayuda new-age con cristales y chakras</li>
+              <li>• Terapia tradicional que te mantiene hablando años</li>
+              <li>• Motivación barata que dura 3 días</li>
+              <li>• Religión o misticismo oriental</li>
+              <li>• "Piensa positivo" y otras mentiras</li>
+              <li>• Comunidad de víctimas que se quejan</li>
+            </ul>
+          </div>
+          
+          <div class="bg-dark-secondary p-8 rounded-lg border border-accent-gold/20">
+            <h3 class="font-bold text-xl font-bold mb-4 text-accent-gold">
+              ✅ Lo que SÍ somos:
+            </h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>• Protocolo científico basado en neurociencia</li>
+              <li>• Herramientas prácticas con resultados medibles</li>
+              <li>• Entrenamiento mental de alto rendimiento</li>
+              <li>• Budismo secular sin misticismo</li>
+              <li>• Honestidad brutal sobre la realidad</li>
+              <li>• Comunidad de guerreros que actúan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comunidad Section -->
+    <section id="comunidad" class="py-20 bg-dark-secondary">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="font-bold text-4xl md:text-5xl font-bold mb-6 text-white">
+            La Hermandad del Código
+          </h2>
+          <p class="text-xl text-gray-300">
+            No estás solo en esta batalla. Únete a una comunidad de guerreros que entienden el protocolo.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="font-bold text-2xl font-bold mb-6 text-accent-gold">
+              Discord: El Dojo Digital
+            </h3>
+            <div class="space-y-4 text-gray-300">
+              <p>
+                Acceso directo a una comunidad de hombres que están aplicando el protocolo en tiempo real. 
+                Sin drama, sin quejas, solo resultados.
+              </p>
+              <p>
+                Análisis post-misión semanales, challenges de implementación, y soporte directo 
+                cuando necesites recalibrar tu enfoque.
+              </p>
+            </div>
+            
+            <div class="mt-8">
+              <Button variant="primary" size="lg" href="#" class="w-full sm:w-auto">
+                Unirse al Discord
+              </Button>
+            </div>
+          </div>
+          
+          <div class="bg-dark-primary p-8 rounded-lg border border-accent-gold/20">
+            <h4 class="font-bold text-xl font-bold mb-6 text-white">
+              Reglas del Dojo:
+            </h4>
+            <div class="space-y-4 text-gray-300">
+              <div class="flex items-start">
+                <span class="text-accent-gold mr-3 font-bold">1.</span>
+                <span>Cero tolerancia a la victimización</span>
+              </div>
+              <div class="flex items-start">
+                <span class="text-accent-gold mr-3 font-bold">2.</span>
+                <span>Solo compartir implementaciones y resultados</span>
+              </div>
+              <div class="flex items-start">
+                <span class="text-accent-gold mr-3 font-bold">3.</span>
+                <span>Feedback directo y honesto</span>
+              </div>
+              <div class="flex items-start">
+                <span class="text-accent-gold mr-3 font-bold">4.</span>
+                <span>Respeto por el protocolo y el proceso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="font-bold text-4xl md:text-5xl font-bold mb-6 text-white">
+            ¿Listo para el Control Total?
+          </h2>
+          <p class="text-xl text-gray-300 mb-8">
+            El protocolo está aquí. La comunidad te espera. Solo falta tu decisión.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button variant="primary" size="lg" href={import.meta.env.BASE_URL + "curso"}>
+              Iniciar Protocolo Ahora
+            </Button>
+            <Button variant="secondary" size="lg" href="#comunidad">
+              Unirse a la Comunidad
+            </Button>
+          </div>
+          
+          <p class="text-gray-400 mt-8">
+            No hay garantías. No hay atajos. Solo trabajo duro y resultados reales.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+

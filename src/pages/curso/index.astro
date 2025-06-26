@@ -1,0 +1,408 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import '../../styles/global.css';
+const resolveUrl = (url) => {
+  if (!url || url.startsWith("http") || url.startsWith("#")) return url;
+  if (url.startsWith("/")) return `${baseUrl}${url.slice(1)}`;
+  return url;
+};
+---
+
+<Layout 
+  title="Curso Completo - CÓDIGO GUERRERO"
+  description="Accede a los 7 módulos completos del protocolo de budismo secular para el dominio interno. Entrenamiento mental de alto rendimiento."
+  keywords="curso budismo secular, entrenamiento mental, protocolo mindfulness, desarrollo personal masculino"
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary"></div>
+      <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      
+      <div class="relative z-10 section-container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="font-bold text-4xl md:text-6xl font-bold mb-6">
+            <span class="gradient-text">El Protocolo Completo</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 mb-8">
+            7 módulos de entrenamiento intensivo para el dominio interno total
+          </p>
+          <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+            Cada módulo está diseñado para hackear un aspecto específico de tu mente. 
+            Sigue el orden. Completa los ejercicios. Obtén resultados medibles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progreso Section -->
+    <section class="py-12 bg-dark-secondary">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="font-bold text-2xl font-bold mb-6 text-white text-center">
+            Tu Progreso en el Protocolo
+          </h2>
+          
+          <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-gray-300">Progreso General</span>
+              <span class="text-accent-gold font-bold">0/7 Módulos</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2">
+              <div class="bg-accent-gold h-2 rounded-full" style="width: 0%"></div>
+            </div>
+            <p class="text-gray-400 text-sm mt-2">
+              Comienza con el Protocolo de Inducción para configurar tu mentalidad correcta.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulos Section -->
+    <section class="py-20">
+      <div class="section-container">
+        <div class="max-w-6xl mx-auto">
+          <div class="space-y-8">
+            
+            <!-- Semana 0 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-accent-gold/20 hover:border-accent-gold/40 transition-all duration-300">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-accent-gold rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-dark-primary font-bold">0</span>
+                    </div>
+                    <div>
+                      <div class="text-accent-gold font-bold text-sm">SEMANA 0</div>
+                      <h3 class="font-bold text-2xl font-bold text-white">Protocolo de Inducción</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-300 mb-4 max-w-2xl">
+                    Configuración mental inicial. Bienvenida al protocolo, cómo usar la plataforma, 
+                    establecer la mentalidad correcta (disciplina vs. motivación), y el "Contrato del Guerrero".
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-dark-primary text-accent-gold px-3 py-1 rounded-full text-sm">Fundamentos</span>
+                    <span class="bg-dark-primary text-accent-gold px-3 py-1 rounded-full text-sm">Mentalidad</span>
+                    <span class="bg-dark-primary text-accent-gold px-3 py-1 rounded-full text-sm">Compromiso</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-400 text-sm">Duración estimada</div>
+                    <div class="text-white font-semibold">45 minutos</div>
+                  </div>
+                  <Button variant="primary" href={import.meta.env.BASE_URL + "curso/semana-0"}>
+                    Comenzar Protocolo
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Módulo 1 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-gray-600 opacity-75">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-gray-400 font-bold">1</span>
+                    </div>
+                    <div>
+                      <div class="text-gray-500 font-bold text-sm">MÓDULO 1</div>
+                      <h3 class="font-bold text-2xl font-bold text-gray-400">El Diagnóstico - El Origen del Ruido</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-500 mb-4 max-w-2xl">
+                    La Primera Noble Verdad como un diagnóstico de la insatisfacción (Dukkha). 
+                    Identificar el "ruido mental" y sus costos reales en tu vida.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Diagnóstico</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Primera Noble Verdad</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Dukkha</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-500 text-sm">Duración estimada</div>
+                    <div class="text-gray-400 font-semibold">60 minutos</div>
+                  </div>
+                  <Button variant="outline" class="opacity-50 cursor-not-allowed">
+                    Bloqueado
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Módulo 2 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-gray-600 opacity-75">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-gray-400 font-bold">2</span>
+                    </div>
+                    <div>
+                      <div class="text-gray-500 font-bold text-sm">MÓDULO 2</div>
+                      <h3 class="font-bold text-2xl font-bold text-gray-400">El Mapa del Terreno - Apego y Aversión</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-500 mb-4 max-w-2xl">
+                    La Segunda Noble Verdad. Entender cómo el deseo de control y el miedo al rechazo 
+                    (apego/aversión) son el código fuente de la frustración.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Segunda Noble Verdad</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Apego</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Aversión</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-500 text-sm">Duración estimada</div>
+                    <div class="text-gray-400 font-semibold">75 minutos</div>
+                  </div>
+                  <Button variant="outline" class="opacity-50 cursor-not-allowed">
+                    Bloqueado
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Módulo 3 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-gray-600 opacity-75">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-gray-400 font-bold">3</span>
+                    </div>
+                    <div>
+                      <div class="text-gray-500 font-bold text-sm">MÓDULO 3</div>
+                      <h3 class="font-bold text-2xl font-bold text-gray-400">La Posibilidad de Silencio - Inmunidad y No-Apego</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-500 mb-4 max-w-2xl">
+                    La Tercera Noble Verdad. Presentar la impermanencia (Anicca) como una ley física 
+                    y el no-apego (Nekkhamma) como la estrategia para ser inmune al resultado.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Tercera Noble Verdad</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Impermanencia</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">No-Apego</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-500 text-sm">Duración estimada</div>
+                    <div class="text-gray-400 font-semibold">90 minutos</div>
+                  </div>
+                  <Button variant="outline" class="opacity-50 cursor-not-allowed">
+                    Bloqueado
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Módulo 4 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-gray-600 opacity-75">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-gray-400 font-bold">4</span>
+                    </div>
+                    <div>
+                      <div class="text-gray-500 font-bold text-sm">MÓDULO 4</div>
+                      <h3 class="font-bold text-2xl font-bold text-gray-400">El Arsenal - El Óctuple Protocolo</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-500 mb-4 max-w-2xl">
+                    La Cuarta Noble Verdad. Presentar el Noble Óctuple Sendero como un "protocolo de 8 pasos" 
+                    para la acción. Enfoque en Mindfulness como entrenamiento del enfoque.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Cuarta Noble Verdad</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Óctuple Sendero</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Mindfulness</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-500 text-sm">Duración estimada</div>
+                    <div class="text-gray-400 font-semibold">120 minutos</div>
+                  </div>
+                  <Button variant="outline" class="opacity-50 cursor-not-allowed">
+                    Bloqueado
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Módulo 5 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-gray-600 opacity-75">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-gray-400 font-bold">5</span>
+                    </div>
+                    <div>
+                      <div class="text-gray-500 font-bold text-sm">MÓDULO 5</div>
+                      <h3 class="font-bold text-2xl font-bold text-gray-400">Neuro-Tecnología del Guerrero - Hackeando tu Hardware</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-500 mb-4 max-w-2xl">
+                    Evidencia científica. Cómo el mindfulness y la meditación reconfiguran el cerebro (neuroplasticidad). 
+                    La autocompasión (Karuna) como herramienta estratégica de recuperación.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Neurociencia</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Neuroplasticidad</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Autocompasión</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-500 text-sm">Duración estimada</div>
+                    <div class="text-gray-400 font-semibold">90 minutos</div>
+                  </div>
+                  <Button variant="outline" class="opacity-50 cursor-not-allowed">
+                    Bloqueado
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Módulo 6 -->
+            <div class="bg-dark-secondary p-8 rounded-lg border border-gray-600 opacity-75">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+                      <span class="text-gray-400 font-bold">6</span>
+                    </div>
+                    <div>
+                      <div class="text-gray-500 font-bold text-sm">MÓDULO 6</div>
+                      <h3 class="font-bold text-2xl font-bold text-gray-400">Integración - El Dojo es el Mundo</h3>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-500 mb-4 max-w-2xl">
+                    Cómo aplicar los protocolos en situaciones reales: negociación, conflicto, citas, carrera profesional. 
+                    El "Análisis Post-Misión" como práctica continua.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Aplicación Real</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Integración</span>
+                    <span class="bg-gray-700 text-gray-500 px-3 py-1 rounded-full text-sm">Post-Misión</span>
+                  </div>
+                </div>
+                
+                <div class="lg:ml-8 mt-4 lg:mt-0">
+                  <div class="text-right mb-4">
+                    <div class="text-gray-500 text-sm">Duración estimada</div>
+                    <div class="text-gray-400 font-semibold">105 minutos</div>
+                  </div>
+                  <Button variant="outline" class="opacity-50 cursor-not-allowed">
+                    Bloqueado
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instrucciones Section -->
+    <section class="py-20 bg-dark-secondary">
+      <div class="section-container">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="font-bold text-3xl font-bold mb-8 text-white text-center">
+            Instrucciones del Protocolo
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-dark-primary p-6 rounded-lg border border-accent-gold/20">
+              <h3 class="font-bold text-xl font-bold mb-4 text-accent-gold">
+                Reglas de Implementación:
+              </h3>
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-accent-gold mr-2">1.</span>
+                  Completa los módulos en orden secuencial
+                </li>
+                <li class="flex items-start">
+                  <span class="text-accent-gold mr-2">2.</span>
+                  No avances sin completar los ejercicios
+                </li>
+                <li class="flex items-start">
+                  <span class="text-accent-gold mr-2">3.</span>
+                  Implementa antes de consumir más teoría
+                </li>
+                <li class="flex items-start">
+                  <span class="text-accent-gold mr-2">4.</span>
+                  Documenta tu progreso en Discord
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-dark-primary p-6 rounded-lg border border-accent-red/20">
+              <h3 class="font-bold text-xl font-bold mb-4 text-accent-red">
+                Errores Comunes:
+              </h3>
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start">
+                  <span class="text-accent-red mr-2">×</span>
+                  Saltar módulos por impaciencia
+                </li>
+                <li class="flex items-start">
+                  <span class="text-accent-red mr-2">×</span>
+                  Consumir sin implementar
+                </li>
+                <li class="flex items-start">
+                  <span class="text-accent-red mr-2">×</span>
+                  Buscar atajos o "hacks" rápidos
+                </li>
+                <li class="flex items-start">
+                  <span class="text-accent-red mr-2">×</span>
+                  Abandonar ante la primera resistencia
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+

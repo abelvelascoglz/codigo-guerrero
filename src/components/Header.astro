@@ -1,0 +1,41 @@
+---
+// Header component
+// Función simplificada para resolver URLs
+const resolveUrl = (url) => {
+  if (!url || url.startsWith('http') || url.startsWith('#')) return url;
+  if (url.startsWith('/')) {
+    return import.meta.env.BASE_URL + url.slice(1);
+  }
+  return url;
+};
+---
+
+<header class="bg-dark-secondary/95 backdrop-blur-sm border-b border-accent-gold/20 sticky top-0 z-50">
+  <nav class="section-container py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-accent-gold rounded-lg flex items-center justify-center">
+          <span class="text-gray-900 font-bold text-lg">CG</span>
+        </div>
+        <span class="font-bold text-xl text-white">CÓDIGO GUERRERO</span>
+      </div>
+      
+      <div class="hidden md:flex items-center space-x-8">
+        <a href={import.meta.env.BASE_URL} class="text-gray-300 hover:text-accent-gold transition-colors">Inicio</a>
+        <a href={import.meta.env.BASE_URL + "curso"} class="text-gray-300 hover:text-accent-gold transition-colors">Curso</a>
+        <a href="#comunidad" class="text-gray-300 hover:text-accent-gold transition-colors">Comunidad</a>
+        <button class="btn-primary">Acceder</button>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button class="text-white hover:text-accent-gold">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
